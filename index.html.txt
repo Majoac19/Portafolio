@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ¡IMPORTANTE! Reemplaza [Tu Nombre] en el título -->
+    <title>Mi Portafolio - Majo Alvarado</title>
+    <!-- Carga de Tailwind CSS para un diseño responsivo y moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados y variables de color */
+        :root {
+            --color-primary: #1e3a8a; /* Azul oscuro de Tailwind 'blue-800' */
+            --color-secondary: #3b82f6; /* Azul medio de Tailwind 'blue-500' */
+            --color-accent: #fcd34d; /* Amarillo/Dorado de Tailwind 'amber-300' */
+            --color-bg: #f3f4f6; /* Gris claro de Tailwind 'gray-100' */
+            --color-text: #1f2937; /* Gris oscuro de Tailwind 'gray-800' */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+        }
+        .section-title {
+            color: var(--color-primary);
+            border-bottom: 4px solid var(--color-accent);
+            display: inline-block;
+            padding-bottom: 0.25rem;
+        }
+        .card {
+            background-color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: var(--color-primary);
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: var(--color-secondary);
+        }
+        /* Clase para el enlace de navegación activo */
+        .nav-link.active {
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navbar Fijo y Responsivo -->
+    <nav id="navbar" class="sticky top-0 z-50 bg-white shadow-md p-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- REEMPLAZA [Tu Nombre/Logo] -->
+            <a href="#inicio" class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition duration-300">
+                Majo Alvarado
+            </a>
+            <!-- Botón de menú para móvil -->
+            <button id="menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <!-- Menú de navegación principal (escritorio) -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#inicio" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition duration-300 active" data-section="inicio">Inicio</a>
+                <a href="#sobre-mi" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition duration-300" data-section="sobre-mi">Sobre Mí</a>
+                <a href="#proyectos" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition duration-300" data-section="proyectos">Proyectos</a>
+                <a href="#habilidades" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition duration-300" data-section="habilidades">Habilidades</a>
+                <a href="#contacto" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition duration-300" data-section="contacto">Contacto</a>
+            </div>
+        </div>
+        <!-- Menú desplegable para móvil -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+            <a href="#inicio" class="mobile-nav-link block p-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium" data-section="inicio">Inicio</a>
+            <a href="#sobre-mi" class="mobile-nav-link block p-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium" data-section="sobre-mi">Sobre Mí</a>
+            <a href="#proyectos" class="mobile-nav-link block p-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium" data-section="proyectos">Proyectos</a>
+            <a href="#habilidades" class="mobile-nav-link block p-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium" data-section="habilidades">Habilidades</a>
+            <a href="#contacto" class="mobile-nav-link block p-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium" data-section="contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-4 md:p-8">
+
+        <!-- Sección de Inicio (Hero) -->
+        <section id="inicio" class="min-h-[calc(100vh-80px)] flex items-center py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Columna de Texto -->
+                <div class="space-y-6">
+                    <h4 class="text-xl font-semibold text-gray-600">Hola, soy</h4>
+                    <!-- REEMPLAZA [Tu Nombre Completo] -->
+                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900">
+                        Majo Alvarado
+                    </h1>
+                    <!-- El texto que aparece aquí se controla en el JavaScript (variable 'roles') -->
+                    <h2 class="text-3xl font-bold text-blue-600">
+                        <span id="typed-text"></span><span class="cursor">|</span>
+                    </h2>
+                    <!-- REEMPLAZA ESTE TEXTO -->
+                    <p class="text-lg text-gray-700 max-w-lg">
+                        Soy un profesional con formación en Diseño de animación digital, especializada en Quality Assurance (QA). Combino habilidades técnicas en pruebas manuales y automatizadas, manejo de herramientas como Selenium, Postman y JIRA, experiencia en documentación y SQL. 
+¡Echa un vistazo a mi trabajo!
+                    </p>
+                    <div class="flex space-x-4 pt-4">
+                        <a href="#proyectos" class="btn-primary text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                            Ver Proyectos
+                        </a>
+                        <!-- REEMPLAZA ESTA URL CON LA DE TU CV -->
+                        <a href="https://ejemplo.com/tu-cv.pdf" target="_blank" class="bg-white border-2 border-primary text-primary font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-50 transition duration-300">
+                            Descargar CV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna de Imagen/Avatar (Responsive) -->
+                <div class="flex justify-center md:justify-end">
+                    <!-- REEMPLAZA ESTA URL CON LA DE TU FOTO REAL -->
+                    <img src="https://i.imgur.com/8hIQ21U.jpeg"
+                         alt="Majo Alvarado | QA Tester]"
+                         class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-primary shadow-2xl">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Sobre Mí -->
+        <section id="sobre-mi" class="py-16">
+            <h3 class="text-4xl font-bold mb-10 section-title">Sobre Mí</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="md:col-span-2 space-y-6 text-lg text-gray-700">
+                    <!-- REEMPLAZA ESTE TEXTO CON TU BIO REAL -->
+                    <p>
+                        Soy una profesional con formación en pruebas funcionales, pruebas de API, documentación de bugs y uso de herramientas como Postman, Android Studio y PyCharm. Vengo de un entorno creativo y técnico, lo que me ha dado un enfoque analítico, atención al detalle y facilidad para aprender rápido. Mi objetivo es integrarme a un equipo donde pueda seguir creciendo, aportar calidad desde el primer día y desarrollar una carrera sólida en el aseguramiento de la calidad.
+                    </p>
+                    <p>
+                        Cuando no estoy realizando o documentando pruebas, probablemente me encontrarás pintando o jugando videojuegos.
+                    </p>
+                    <a href="#contacto" class="inline-block mt-4 text-secondary font-semibold hover:underline">
+                        ¡Conectemos! <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <!-- Columna de Citas o Stats Rápidas (Opcional) -->
+                <div class="space-y-4">
+                    <div class="card p-6 rounded-xl">
+                        <p class="text-3xl font-bold text-primary">Capacidad de Análisis</p>
+                    </div>
+                    <div class="card p-6 rounded-xl">
+                        <p class="text-3xl font-bold text-primary">Identificación de anomalías</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Proyectos (Ejemplo) -->
+        <section id="proyectos" class="py-16">
+            <h3 class="text-4xl font-bold mb-10 section-title">Proyectos Destacados</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Tarjeta de Proyecto 1 -->
+                <div class="card rounded-xl overflow-hidden">
+                    <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU PROYECTO 1 -->
+                    <img src="https://i.imgur.com/XfWFseo.png" alt="Urban Scooter Majo Alvarado" class="w-full h-48 object-cover">
+                    <div class="p-6 space-y-3">
+                        <h4 class="text-xl font-bold text-gray-900">Urban Scooter</h4>
+                        <p class="text-gray-600 text-sm">Validé la calidad de una plataforma compuesta por una aplicación web y una app móvil, realizando pruebas funcionales, de API y validaciones de base de datos</p>
+                        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">API Testing -</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full">SQL</span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full">Pruebas en dispositivo móvil con Android Studio y página web con DevTools</span>
+                        </div>
+                        <a href="https://docs.google.com/spreadsheets/d/1HNRdTvfbXfoHzo-Eb4mJ9tZPobmJc4eR/edit?usp=sharing&ouid=116543821398845766929&rtpof=true&sd=true" 
+                            target="_blank" 
+                            class="text-gray-500 hover:text-gray-700 transition duration-300">
+                            <i class="fab fa-google-drive text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Proyecto 2 -->
+                <div class="card rounded-xl overflow-hidden">
+                    <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU PROYECTO 2 -->
+                    <img src="https://i.imgur.com/lvb2Nqr.png" alt="Urban Lunch Majo Alvarado" class="w-full h-48 object-cover">
+                    <div class="p-6 space-y-3">
+                        <h4 class="text-xl font-bold text-gray-900">Urban Lunch</h4>
+                        <p class="text-gray-600 text-sm">Comprobación de casos de prueba para aplicación de seguimiento de pedidos con integración de AP y documentación de errores.</p>
+                        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Logcat</span>
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full">Postman</span>
+                        </div>
+                        <div class="pt-3 flex space-x-3">
+                            <!-- REEMPLAZA ESTA URL CON EL DEMO DEL PROYECTO 2 -->
+                            <a href="https://docs.google.com/spreadsheets/d/1-jQItDlTHR710tLoUNoXGR3w1H6imEdW/edit?usp=sharing&ouid=116543821398845766929&rtpof=true&sd=true" 
+                                target="_blank" 
+                                class="text-gray-500 hover:text-gray-700 transition duration-300">
+                                <i class="fab fa-google-drive text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Proyecto 3 -->
+                <div class="card rounded-xl overflow-hidden">
+                    <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU PROYECTO 3 -->
+                    <img src="https://i.imgur.com/LdeICv5.png" alt="Urban Routes Majo Alvarado" class="w-full h-48 object-cover">
+                    <div class="p-6 space-y-3">
+                        <h4 class="text-xl font-bold text-gray-900">Urban Routes</h4>
+                        <p class="text-gray-600 text-sm">Implementé un flujo de automatización con Selenium WebDriver para validar funciones clave de la aplicación. Configuré el entorno, controlé ChromeDriver, localicé elementos con selectores variados y automatizé acciones como escribir, hacer clic y navegar. Apliqué waits y pequeñas aserciones para confirmar resultados. Esta automatización complementó las pruebas manuales, validando la estabilidad de los flujos críticos. </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full">Selenium</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">DevTools</span>
+                        </div>
+                        <div class="pt-3 flex space-x-3">
+                            <!-- REEMPLAZA ESTA URL CON EL GITHUB DEL PROYECTO 3 -->
+                            <a href="https://github.com/Majoac19/qa-project-Urban-Routes-es" target="_blank" class="text-gray-500 hover:text-gray-700 transition duration-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección de Habilidades -->
+        <section id="habilidades" class="py-16">
+            <h3 class="text-4xl font-bold mb-10 section-title">Habilidades y Herramientas</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Categoría 1: Desarrollo Front-end - EDITA TUS HABILIDADES AQUÍ -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-2xl font-bold mb-4 text-primary">QA & Testing</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> Postman</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> Android Studio</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> Cygwing</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> PyCharm</li>
+                    </ul>
+                </div>
+
+                <!-- Categoría 2: Desarrollo Back-end - EDITA TUS HABILIDADES AQUÍ -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-2xl font-bold mb-4 text-primary">Gestión & Documentación</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> JIRA</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> DevTools</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> Git Hub</li>
+                    </ul>
+                </div>
+
+                <!-- Categoría 3: Diseño y Herramientas - EDITA TUS HABILIDADES AQUÍ -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-2xl font-bold mb-4 text-primary"> Bases de Datos & AI</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> SQL</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> Excel</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> AI Prompting</li>
+                    </ul>
+                </div>
+
+                <!-- Categoría 4: Habilidades Blandas - EDITA TUS HABILIDADES AQUÍ -->
+                <div class="card p-6 rounded-xl">
+                    <h4 class="text-2xl font-bold mb-4 text-primary">Soft Skills</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> Comunicación efectiva</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> Pensamiento crítico</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> Adaptabilidad</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-2"></i> Empatía y pensamiento humano</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contacto" class="py-16">
+            <h3 class="text-4xl font-bold mb-10 section-title">Hablemos</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 card p-8 rounded-xl">
+                <!-- Columna de Información -->
+                <div class="space-y-6">
+                    <h4 class="text-2xl font-semibold text-gray-900">¿Te interesa en mi trabajo?</h4>
+                    <p class="text-gray-700">Estoy disponible para nuevos proyectos y oportunidades laborales. Envíame un mensaje y te responderé a la brevedad.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3 text-lg text-gray-700">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <!-- REEMPLAZA TU CORREO -->
+                            <span>majoac_19@hotmail.com</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-lg text-gray-700">
+                            <i class="fas fa-phone text-primary"></i>
+                            <!-- REEMPLAZA TU TELÉFONO -->
+                            <span>+52 22 1320 0831</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-lg text-gray-700">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <!-- REEMPLAZA TU UBICACIÓN -->
+                            <span>CDMX</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Iconos Sociales - REEMPLAZA LAS URLS CON LAS TUYAS -->
+                    <div class="flex space-x-6 pt-4 text-2xl">
+                        <a href="https://www.linkedin.com/in/majo-alvarado-qa/" target="_blank" class="text-gray-600 hover:text-blue-700 transition duration-300"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Majoac19" target="_blank" class="text-gray-600 hover:text-gray-800 transition duration-300"><i class="fab fa-github"></i></a>
+                        <a href="mailto:majoac_19@hotmail.com" target="_blank" class="text-gray-600 hover:text-blue-500 transition duration-300"><i class="fas fa-envelope text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Columna del Formulario de Contacto (Funcionalidad Simulada) -->
+                <div id="contact-form-container">
+                    <form id="contact-form" class="space-y-4">
+                        <input type="text" id="name" placeholder="Tu Nombre" required
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary">
+                        
+                        <input type="email" id="email" placeholder="Correo Electrónico" required
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary">
+                        
+                        <textarea id="message" rows="5" placeholder="Tu Mensaje" required
+                                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary"></textarea>
+                        
+                        <button type="submit" class="btn-primary text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-full">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                    <div id="thank-you-message" class="hidden text-center p-6 bg-green-100 text-green-800 rounded-lg">
+                        <p class="font-bold text-xl mb-2">¡Gracias por tu mensaje!</p>
+                        <p>Te responderé tan pronto como sea posible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Botón de scroll to top -->
+        <button id="scrollToTopBtn" class="fixed bottom-6 right-6 p-4 rounded-full bg-primary text-white shadow-lg opacity-0 transition-opacity duration-300" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto text-center text-sm">
+            <!-- REEMPLAZA [Tu Nombre Completo] -->
+            <p>&copy; <span id="current-year"></span> Luz María José Alvarado Cervera. Todos los derechos reservados.</p>
+            <p class="mt-2">Desarrollado con <i class="fas fa-heart text-red-500 mx-1"></i> y Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- JavaScript para Interactividad ---
+
+        // 1. Efecto de Escritura (Typed Text) para el Hero
+        // ¡EDITA ESTA LISTA con tus roles y títulos!
+        const roles = ["QA Tester", "Automatización", "Pruebas Manuales", "Documentación de casos de pruebas"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typedTextElement = document.getElementById('typed-text');
+        const typingSpeed = 100; // ms
+        const deletionSpeed = 50; // ms
+        const delayBetweenRoles = 1500; // ms
+
+        function typeWriter() {
+            const currentRole = roles[roleIndex];
+
+            if (isDeleting) {
+                // Modo borrado
+                typedTextElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Modo escritura
+                typedTextElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Lógica de transición de modos
+            let speed = isDeleting ? deletionSpeed : typingSpeed;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                // Termina de escribir, espera y empieza a borrar
+                speed = delayBetweenRoles;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Termina de borrar, cambia al siguiente rol
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+            }
+
+            setTimeout(typeWriter, speed);
+        }
+
+        // 2. Control del Menú Móvil
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cierra el menú móvil al hacer clic en un enlace
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+
+        // 3. Resaltado de la Navegación al hacer Scroll (ScrollSpy)
+        const sections = document.querySelectorAll('section[id]');
+
+        function scrollActiveSection() {
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 80; // Compensar la altura del navbar
+                const sectionId = current.getAttribute('id');
+                const navLinks = document.querySelectorAll(`.nav-link[data-section="${sectionId}"]`);
+                const mobileNavLinks = document.querySelectorAll(`.mobile-nav-link[data-section="${sectionId}"]`);
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    // Remover 'active' de todos los enlaces primero para evitar duplicados
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    document.querySelectorAll('.mobile-nav-link').forEach(link => link.classList.remove('active'));
+                    
+                    navLinks.forEach(link => {
+                        link.classList.add('active');
+                    });
+                    mobileNavLinks.forEach(link => {
+                        link.classList.add('active');
+                    });
+                }
+                // Si la sección superior es "inicio", asegúrate de que esté activa si estamos muy arriba
+                if (scrollY < sections[0].offsetTop - 80) {
+                     document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                     document.querySelectorAll('.mobile-nav-link').forEach(link => link.classList.remove('active'));
+                     document.querySelector('.nav-link[data-section="inicio"]').classList.add('active');
+                }
+
+            });
+        }
+        
+        // 4. Botón de Scroll-to-Top
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        function toggleScrollToTopButton() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.remove('opacity-0');
+                scrollToTopBtn.classList.add('opacity-100');
+            } else {
+                scrollToTopBtn.classList.remove('opacity-100');
+                scrollToTopBtn.classList.add('opacity-0');
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // 5. Manejo de Eventos al Cargar y Scroll
+        window.onload = () => {
+            // Iniciar el efecto de escritura
+            typeWriter();
+            // Establecer el año actual en el footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            // Asegurar que la sección inicial esté activa al cargar
+            scrollActiveSection();
+        };
+
+        window.addEventListener('scroll', () => {
+            scrollActiveSection();
+            toggleScrollToTopButton();
+        });
+
+        // 6. Simulación de Envío del Formulario de Contacto
+        const contactForm = document.getElementById('contact-form');
+        const thankYouMessage = document.getElementById('thank-you-message');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // En un sitio web real, aquí se usaría un servicio (como Firebase o Formspree)
+            // para enviar los datos por correo electrónico.
+            console.log('Datos del formulario enviados (simulación):');
+            console.log('Nombre:', document.getElementById('name').value);
+            console.log('Email:', document.getElementById('email').value);
+            console.log('Mensaje:', document.getElementById('message').value);
+            
+            // Ocultar el formulario y mostrar el mensaje de agradecimiento
+            contactForm.classList.add('hidden');
+            thankYouMessage.classList.remove('hidden');
+
+            // Opcional: Ocultar el mensaje después de unos segundos y restablecer el formulario
+            setTimeout(() => {
+                thankYouMessage.classList.add('hidden');
+                contactForm.reset();
+                contactForm.classList.remove('hidden');
+            }, 5000); 
+        });
+
+    </script>
+</body>
+</html>
