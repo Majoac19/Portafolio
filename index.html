@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ¡IMPORTANTE! Reemplaza [Tu Nombre] en el título -->
+    
     <title>Mi Portafolio - Majo Alvarado</title>
     <!-- Carga de Tailwind CSS para un diseño responsivo y moderno -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos personalizados y variables de color */
+        
         :root {
             --color-primary: #1e3a8a; /* Azul oscuro de Tailwind 'blue-800' */
             --color-secondary: #3b82f6; /* Azul medio de Tailwind 'blue-500' */
@@ -45,7 +45,7 @@
         .btn-primary:hover {
             background-color: var(--color-secondary);
         }
-        /* Clase para el enlace de navegación activo */
+        
         .nav-link.active {
             color: var(--color-accent);
             border-bottom: 2px solid var(--color-accent);
@@ -54,18 +54,18 @@
 </head>
 <body class="antialiased">
 
-    <!-- Navbar Fijo y Responsivo -->
+    
     <nav id="navbar" class="sticky top-0 z-50 bg-white shadow-md p-4 transition-all duration-300">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- REEMPLAZA [Tu Nombre/Logo] -->
+            
             <a href="#inicio" class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition duration-300">
                 Majo Alvarado
             </a>
-            <!-- Botón de menú para móvil -->
+            
             <button id="menu-button" class="md:hidden text-gray-700 focus:outline-none">
                 <i class="fas fa-bars text-xl"></i>
             </button>
-            <!-- Menú de navegación principal (escritorio) -->
+            
             <div class="hidden md:flex space-x-6">
                 <a href="#inicio" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition duration-300 active" data-section="inicio">Inicio</a>
                 <a href="#sobre-mi" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition duration-300" data-section="sobre-mi">Sobre Mí</a>
@@ -74,7 +74,7 @@
                 <a href="#contacto" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition duration-300" data-section="contacto">Contacto</a>
             </div>
         </div>
-        <!-- Menú desplegable para móvil -->
+        
         <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
             <a href="#inicio" class="mobile-nav-link block p-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium" data-section="inicio">Inicio</a>
             <a href="#sobre-mi" class="mobile-nav-link block p-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium" data-section="sobre-mi">Sobre Mí</a>
@@ -86,21 +86,21 @@
 
     <main class="max-w-7xl mx-auto p-4 md:p-8">
 
-        <!-- Sección de Inicio (Hero) -->
+        
         <section id="inicio" class="min-h-[calc(100vh-80px)] flex items-center py-16">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Columna de Texto -->
+                
                 <div class="space-y-6">
                     <h4 class="text-xl font-semibold text-gray-600">Hola, soy</h4>
-                    <!-- REEMPLAZA [Tu Nombre Completo] -->
+                    
                     <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900">
                         Majo Alvarado
                     </h1>
-                    <!-- El texto que aparece aquí se controla en el JavaScript (variable 'roles') -->
+                    
                     <h2 class="text-3xl font-bold text-blue-600">
                         <span id="typed-text"></span><span class="cursor">|</span>
                     </h2>
-                    <!-- REEMPLAZA ESTE TEXTO -->
+                    
                     <p class="text-lg text-gray-700 max-w-lg">
                         Soy un profesional con formación en Diseño de animación digital, especializada en Quality Assurance (QA). Combino habilidades técnicas en pruebas manuales y automatizadas, manejo de herramientas como Selenium, Postman y JIRA, experiencia en documentación y SQL. 
 ¡Echa un vistazo a mi trabajo!
@@ -126,12 +126,12 @@
             </div>
         </section>
 
-        <!-- Sección Sobre Mí -->
+        
         <section id="sobre-mi" class="py-16">
             <h3 class="text-4xl font-bold mb-10 section-title">Sobre Mí</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div class="md:col-span-2 space-y-6 text-lg text-gray-700">
-                    <!-- REEMPLAZA ESTE TEXTO CON TU BIO REAL -->
+                    
                     <p>
                         Soy una profesional con formación en pruebas funcionales, pruebas de API, documentación de bugs y uso de herramientas como Postman, Android Studio y PyCharm. Vengo de un entorno creativo y técnico, lo que me ha dado un enfoque analítico, atención al detalle y facilidad para aprender rápido. Mi objetivo es integrarme a un equipo donde pueda seguir creciendo, aportar calidad desde el primer día y desarrollar una carrera sólida en el aseguramiento de la calidad.
                     </p>
@@ -142,7 +142,7 @@
                         ¡Conectemos! <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
-                <!-- Columna de Citas o Stats Rápidas (Opcional) -->
+                
                 <div class="space-y-4">
                     <div class="card p-6 rounded-xl">
                         <p class="text-3xl font-bold text-primary">Capacidad de Análisis</p>
@@ -154,13 +154,13 @@
             </div>
         </section>
 
-        <!-- Sección de Proyectos (Ejemplo) -->
+        
         <section id="proyectos" class="py-16">
             <h3 class="text-4xl font-bold mb-10 section-title">Proyectos Destacados</h3>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Tarjeta de Proyecto 1 -->
+                
                 <div class="card rounded-xl overflow-hidden">
                     <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU PROYECTO 1 -->
                     <img src="https://i.imgur.com/XfWFseo.png" alt="Urban Scooter Majo Alvarado" class="w-full h-48 object-cover">
@@ -180,7 +180,7 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta de Proyecto 2 -->
+                
                 <div class="card rounded-xl overflow-hidden">
                     <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU PROYECTO 2 -->
                     <img src="https://i.imgur.com/lvb2Nqr.png" alt="Urban Lunch Majo Alvarado" class="w-full h-48 object-cover">
@@ -202,7 +202,7 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta de Proyecto 3 -->
+                
                 <div class="card rounded-xl overflow-hidden">
                     <!-- REEMPLAZA ESTA URL CON LA IMAGEN DE TU PROYECTO 3 -->
                     <img src="https://i.imgur.com/LdeICv5.png" alt="Urban Routes Majo Alvarado" class="w-full h-48 object-cover">
@@ -215,7 +215,7 @@
                             <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">DevTools</span>
                         </div>
                         <div class="pt-3 flex space-x-3">
-                            <!-- REEMPLAZA ESTA URL CON EL GITHUB DEL PROYECTO 3 -->
+                            
                             <a href="https://github.com/Majoac19/qa-project-Urban-Routes-es" target="_blank" class="text-gray-500 hover:text-gray-700 transition duration-300">
                                 <i class="fab fa-github text-xl"></i>
                             </a>
@@ -226,12 +226,12 @@
             </div>
         </section>
 
-        <!-- Sección de Habilidades -->
+        
         <section id="habilidades" class="py-16">
             <h3 class="text-4xl font-bold mb-10 section-title">Habilidades y Herramientas</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- Categoría 1: Desarrollo Front-end - EDITA TUS HABILIDADES AQUÍ -->
+                
                 <div class="card p-6 rounded-xl">
                     <h4 class="text-2xl font-bold mb-4 text-primary">QA & Testing</h4>
                     <ul class="space-y-2 text-gray-700">
@@ -242,7 +242,7 @@
                     </ul>
                 </div>
 
-                <!-- Categoría 2: Desarrollo Back-end - EDITA TUS HABILIDADES AQUÍ -->
+                
                 <div class="card p-6 rounded-xl">
                     <h4 class="text-2xl font-bold mb-4 text-primary">Gestión & Documentación</h4>
                     <ul class="space-y-2 text-gray-700">
@@ -252,7 +252,7 @@
                     </ul>
                 </div>
 
-                <!-- Categoría 3: Diseño y Herramientas - EDITA TUS HABILIDADES AQUÍ -->
+                
                 <div class="card p-6 rounded-xl">
                     <h4 class="text-2xl font-bold mb-4 text-primary"> Bases de Datos & AI</h4>
                     <ul class="space-y-2 text-gray-700">
@@ -262,7 +262,7 @@
                     </ul>
                 </div>
 
-                <!-- Categoría 4: Habilidades Blandas - EDITA TUS HABILIDADES AQUÍ -->
+                
                 <div class="card p-6 rounded-xl">
                     <h4 class="text-2xl font-bold mb-4 text-primary">Soft Skills</h4>
                     <ul class="space-y-2 text-gray-700">
@@ -275,7 +275,7 @@
             </div>
         </section>
 
-        <!-- Sección de Contacto -->
+        
         <section id="contacto" class="py-16">
             <h3 class="text-4xl font-bold mb-10 section-title">Hablemos</h3>
 
@@ -293,7 +293,7 @@
                         </div>
                         <div class="flex items-center space-x-3 text-lg text-gray-700">
                             <i class="fas fa-phone text-primary"></i>
-                            <!-- REEMPLAZA TU TELÉFONO -->
+                            
                             <span>+52 22 1320 0831</span>
                         </div>
                         <div class="flex items-center space-x-3 text-lg text-gray-700">
@@ -303,7 +303,7 @@
                         </div>
                     </div>
                     
-                    <!-- Iconos Sociales - REEMPLAZA LAS URLS CON LAS TUYAS -->
+                    
                     <div class="flex space-x-6 pt-4 text-2xl">
                         <a href="https://www.linkedin.com/in/majo-alvarado-qa/" target="_blank" class="text-gray-600 hover:text-blue-700 transition duration-300"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/Majoac19" target="_blank" class="text-gray-600 hover:text-gray-800 transition duration-300"><i class="fab fa-github"></i></a>
@@ -311,7 +311,7 @@
                     </div>
                 </div>
 
-                <!-- Columna del Formulario de Contacto (Funcionalidad Simulada) -->
+                
                 <div id="contact-form-container">
                     <form id="contact-form" class="space-y-4">
                         <input type="text" id="name" placeholder="Tu Nombre" required
@@ -335,14 +335,14 @@
             </div>
         </section>
         
-        <!-- Botón de scroll to top -->
+       
         <button id="scrollToTopBtn" class="fixed bottom-6 right-6 p-4 rounded-full bg-primary text-white shadow-lg opacity-0 transition-opacity duration-300" onclick="scrollToTop()">
             <i class="fas fa-arrow-up"></i>
         </button>
 
     </main>
 
-    <!-- Footer -->
+    
     <footer class="bg-gray-800 text-white py-6 mt-12">
         <div class="max-w-7xl mx-auto text-center text-sm">
             <!-- REEMPLAZA [Tu Nombre Completo] -->
@@ -499,7 +499,7 @@
             contactForm.classList.add('hidden');
             thankYouMessage.classList.remove('hidden');
 
-            // Opcional: Ocultar el mensaje después de unos segundos y restablecer el formulario
+            // Ocultar el mensaje después de unos segundos y restablecer el formulario
             setTimeout(() => {
                 thankYouMessage.classList.add('hidden');
                 contactForm.reset();
@@ -510,5 +510,6 @@
     </script>
 </body>
 </html>
+
 
 
