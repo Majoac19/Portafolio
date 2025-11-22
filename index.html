@@ -316,22 +316,39 @@
                 
                 <div id="contact-form-container">
                     <form id="contact-form"
-                      action="https://formspree.io/f/xeodaykb"
-                      method="POST"
-                      class="space-y-4">
-                        <input type="text" id="name" placeholder="Tu Nombre" required
+                            action="https://formspree.io/f/xeodaykb"
+                            method="POST"
+                            class="space-y-4">
+
+                        <input type="hidden" name="_replyto">
+
+                        <input type="text" 
+                               id="name" 
+                               name="name"
+                               placeholder="Tu Nombre" 
+                               required
                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary">
-                        
-                        <input type="email" id="email" placeholder="Correo Electrónico" required
-                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary">
-                        
-                        <textarea id="message" rows="5" placeholder="Tu Mensaje" required
-                                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary"></textarea>
-                        
-                        <button type="submit" class="btn-primary text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-full">
-                            Enviar Mensaje
+
+                        <input type="email" 
+                                id="email" 
+                                name="email"
+                                placeholder="Correo Electrónico" 
+                                required
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary">
+
+                        <textarea id="message" 
+                                    name="message"
+                                    rows="5" 
+                                    placeholder="Tu Mensaje" 
+                                    required
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary"></textarea>
+
+                        <button type="submit" 
+                            class="btn-primary text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 w-full">
+                        Enviar Mensaje
                         </button>
                     </form>
+                    
                     <div id="thank-you-message" class="hidden text-center p-6 bg-green-100 text-green-800 rounded-lg">
                         <p class="font-bold text-xl mb-2">¡Gracias por tu mensaje!</p>
                         <p>Te responderé tan pronto como sea posible.</p>
@@ -408,7 +425,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Cierra el menú móvil al hacer clic en un enlace
+        // Cierrar el menú móvil al hacer clic en un link
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -486,35 +503,33 @@
             toggleScrollToTopButton();
         });
 
-        // 6. Simulación de Envío del Formulario de Contacto
-        const contactForm = document.getElementById('contact-form');
-        const thankYouMessage = document.getElementById('thank-you-message');
-        
-            
-            // Formspree
-            console.log('Datos del formulario enviados (simulación):');
-            console.log('Nombre:', document.getElementById('name').value);
-            console.log('Email:', document.getElementById('email').value);
-            console.log('Mensaje:', document.getElementById('message').value);
-            
-            // Ocultar el formulario y mostrar el mensaje de agradecimiento
-            contactForm.classList.add('hidden');
-            thankYouMessage.classList.remove('hidden');
 
-            // Ocultar el mensaje después de unos segundos y restablecer el formulario
-            setTimeout(() => {
-                thankYouMessage.classList.add('hidden');
-                contactForm.reset();
-                contactForm.classList.remove('hidden');
-            }, 5000); 
-        });
+    </script>
 
+    <script>
+    document.getElementById("contact-form").addEventListener("submit", async function (e) {
+    e.preventDefault(); // Evita la recarga
+
+    const form = e.target;
+
+    const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+    });
+
+    if (response.ok) {
+        // Oculta el formulario
+        form.classList.add("hidden");
+
+        // Muestra tu mensaje de agradecimiento
+        document.getElementById("thank-you-message").classList.remove("hidden");
+
+        form.reset();
+    } else {
+        alert("Hubo un problema al enviar el mensaje. Intenta de nuevo.");
+    }
+    });
     </script>
 </body>
 </html>
-
-
-
-
-
-
