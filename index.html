@@ -315,7 +315,10 @@
 
                 
                 <div id="contact-form-container">
-                    <form id="contact-form" class="space-y-4">
+                    <form id="contact-form"
+                      action="https://formspree.io/f/xeodaykb"
+                      method="POST"
+                      class="space-y-4">
                         <input type="text" id="name" placeholder="Tu Nombre" required
                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary">
                         
@@ -487,11 +490,8 @@
         const contactForm = document.getElementById('contact-form');
         const thankYouMessage = document.getElementById('thank-you-message');
         
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
             
-            // En un sitio web real, aquí se usaría un servicio (como Firebase o Formspree)
-            // para enviar los datos por correo electrónico.
+            // Formspree
             console.log('Datos del formulario enviados (simulación):');
             console.log('Nombre:', document.getElementById('name').value);
             console.log('Email:', document.getElementById('email').value);
@@ -512,6 +512,7 @@
     </script>
 </body>
 </html>
+
 
 
 
